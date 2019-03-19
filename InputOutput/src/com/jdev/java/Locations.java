@@ -1,6 +1,6 @@
 package com.jdev.java;
 
-import sun.tools.tree.InstanceOfExpression;
+//import sun.tools.tree.InstanceOfExpression;
 
 import java.io.*;
 import java.util.*;
