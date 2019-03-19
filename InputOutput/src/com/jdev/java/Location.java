@@ -3,28 +3,31 @@ package com.jdev.java;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class Location {
-
-    private final int LocationID;
+/**
+ * Created by dev on 8/12/2015.
+ */
+public class Location {
+    private final int locationID;
     private final String description;
     private final Map<String, Integer> exits;
 
-
-
-    public  Location(int locationID, String description, Map<String,Integer> exits) {
-        LocationID = locationID;
+    public Location(int locationID, String description, Map<String, Integer> exits) {
+        this.locationID = locationID;
         this.description = description;
-        this.exits = new HashMap<>(exits);
-        this.exits.put("Q",0);
+        if(exits != null) {
+            this.exits = new HashMap<String, Integer>(exits);
+        } else {
+            this.exits = new HashMap<String, Integer>();
+        }
+        this.exits.put("Q", 0);
     }
 
-//    public void addExit(String direction, int location){
-//        exits.put(direction,location);
-//
+//    public void addExit(String direction, int location) {
+//        exits.put(direction, location);
 //    }
 
     public int getLocationID() {
-        return LocationID;
+        return locationID;
     }
 
     public String getDescription() {
@@ -32,6 +35,9 @@ public final class Location {
     }
 
     public Map<String, Integer> getExits() {
-        return new HashMap<>(exits);
+        return new HashMap<String, Integer>(exits);
+    }
+    protected void addExit(String direction, int location) {
+        exits.put(direction, location);
     }
 }
